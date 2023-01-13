@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      .container {
+        height: 100vh;
+        width: 100%;
+        gap: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(253 193 255);
+      }
+      .form {
+        position: absolute;
+        border-radius: 6px;
+        max-width: 430px;
+        padding: 30px;
+        height: fit-content;
+        background: linear-gradient(to top, rgb(214, 14, 221),rgb(12, 194, 226),rgb(214, 14, 221));
+        width: 100%;
+        /* border: 2px solid rgb(197, 8, 181); */
+        box-shadow: 5px grey;
+      }
+      .form.signup {
+        opacity: 0;
+        pointer-events: none;
+      }
+      .form.forgot{
+        opacity: 0;
+        pointer-events: none;
+      }
+      .forms.show-forgot .form.forgot{
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .forms.show-forgot .form.login{
+        opacity: 0;
+        pointer-events: none;
+      }
+      .forms.show-forgot .form.signup{
+        opacity: 0;
+        pointer-events: none;
+      }
+      .forms.show-signup .form.signup {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .forms.show-signup .form.login {
+        opacity: 0;
+        pointer-events: none;
+      }
+      .forms.show-signup .form.forgot{
+        opacity: 0;
+        pointer-events: none;
+      }
+      .forms.show-login .form.login{
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .forms.show-login .form.form.signup{
+        opacity: 0;
+        pointer-events: none;
+      }
+      .forms.show-login .form.forgot{
+        opacity: 0;
+        pointer-events: none;
+      }
+      header {
+        font-size: 28px;
+        font-weight: 600;
+        color: wheat;
+        text-align: center;
+      }
+      form {
+        margin-top: 30px;
+      }
+      .form .field {
+        position: relative;
+        height: 40px;
+        width: 100%;
+        margin-top: 20px;
+        border-radius: 6px;
+      }
+      .field input,
+      .field button {
+        height: 100%;
+        width: 100%;
+        border: none;
+        font-size: 16px;
+        font-weight: 400;
+        border-radius: 6px;
+      }
+      .field input {
+        padding: 0 15px;
+        border: 1px solid#CACACA;
+        outline: none;
+      }
+      .field input:focus {
+        border-bottom-width: 2px;
+        font-size: 15px;
+      }
+      .form-link {
+        text-align: center;
+        margin-top: 10px;
+      }
+      .form-link span,
+      .form-link a {
+        font-size: 14px;
+        font-weight: 400;
+        color: #232836;
+      }
+      .form a {
+        color: #f9fafb;
+        text-decoration: none;
+      }
+      .form-content a:hover {
+        text-decoration: underline;
+      }
+      .eye-icon {
+        font-size: 18px;
+        position: absolute;
+        color: #8b8b8b;
+        top: 30%;
+        right: 10px;
+        transform: translate(-50%);
+        cursor: pointer;
+      }
+      .line {
+        height: 1px;
+        width: 100%;
+        position: relative;
+        margin: 36px 0;
+        background-color: white;
+      }
+      .line::before {
+        content: "Or";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        color: #8b8b8b;
+        padding: 0 15px;
+      }
+      .field button {
+        color: white;
+        background-color: #1a01d3;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+      .field button:hover {
+        background-color: #131ae1;
+      }
+      .media-options a {
+        display: flex;
+        background-color: #4267b2;
+        justify-content: center;
+        align-items: center;
+      }
+      a.facebook {
+        background-color: #4267b2;
+        color: #fff;
+      }
+      a.google {
+        border: 1px solid #cacaca;
+        background-color: white;
+      }
+      .a.facebook .facebook-icon {
+        height: 28px;
+        width: 28px;
+        background-color: white;
+        color: #0171d3;
+        font-size: 20px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .facebook-icon {
+        left: 15px;
+        position: absolute;
+        transform: translate(-50%);
+        margin-left: 10px;
+      }
+      .google img {
+        left: 15px;
+        position: absolute;
+        transform: translate(-50%);
+        margin-left: 10px;
+      }
+      .google span {
+        font-weight: 500;
+        opacity: 0.6;
+        color: #232836;
+      }
+      @media screen and (max-width: 400px) {
+        .form {
+          padding: 15px 10px;
+        }
+      }
+      .e-mail {
+        color: rgb(244, 8, 8);
+        margin-left: 10px;
+        display: none;
+        font-weight: 700;
+      }
+      .display{
+        display: block;
+      }
+      .reset{
+        text-align: center;
+        color: white;
+      }
+      .back{
+        text-align: center;
+        margin-top: 10px;
+      }
+      .xyz{
+         /* margin-top: 245px; */
+         max-width: 500px;
+      }
+      .display{
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="container forms">
+      <div class="form login">
+        <div class="form-contents">
+          <header>Login</header>
+          <form action="#">
+            <div class="field input-field">
+              <input type="email" placeholder="Email" class="input" />
+            </div>
+            <div class="wrong-id e-mail"><p>*Please enter a valid Email</p></div>
+            <div class="field input-field">
+              <input type="password" placeholder="Password" class="password" />
+              <i class="bx bx-hide eye-icon"></i>
+            </div>
+            <div class="form-link">
+              <a href="#" class="link2 forgot-pass">Forgot password?</a>
+            </div>
+            <div class="field button-field">
+              <button type="submit">Login</button>
+            </div>
+          </form>
+          <div class="form-link">
+            <span
+              >New to ShelterSpot?<a href="#" class="link signup-link"
+                >Signup</a
+              ></span
+            >
+          </div>
+        </div>
+        <div class="line"></div>
+        <div class="media-options">
+          <a href="#" class="field facebook"
+            ><i class="fa-brands fa-facebook fa-2x facebook-icon"></i>
+            <span>Login with Facebook</span>
+          </a>
+        </div>
+        <div class="media-options">
+          <a href="#" class="field google"
+            ><img
+              src="wp2780434-google-logo-wallpaper-for-mobile-removebg-preview.png"
+              alt="logo"
+              width="65px"
+            />
+            <span>Continue with google</span>
+          </a>
+        </div>
+      </div>
+      <!--Signup Form-->
+      <div class="form signup xyz">
+        <div class="form-contents">
+          <header>Signup</header>
+          <form action="#" name="myForm" onsubmit="return validateForm()" method="post">
+            <div class="field input-field">
+              <input type="text" placeholder="First Name" class="input" name="fname" required="true"/>
+            </div><div class="wrong-id e-mail first"><p>*Only alphabets are allowed</p></div>
+            <div class="field input-field">
+              <input type="text" placeholder="Last Name" class="input" name="lname" required="true"/>
+            </div><div class="wrong-id e-mail second"><p>*Only alphabets are allowed</p></div>
+            <div class="field input-field">
+              <input type="email" placeholder="Email" class="input" name="mail" required="true"/>
+            </div><div class="wrong-id e-mail third"><p>*Please enter a valid Email</p></div>
+            <div class="field input-field">
+              <input type="password" placeholder="Password" class="password" name="pass1" required="true"/>
+              <i class="bx bx-hide eye-icon"></div></i><div class="wrong-id e-mail forth"><p>*Choose a strong password</p></div>
+            <div class="field input-field">
+              <input
+                type="password"
+                placeholder="Confirm Password"
+                class="password"
+                name="pass2"
+              />
+              <i class="bx bx-hide eye-icon"></i>
+            </div>
+            <div class="wrong-id e-mail fifth"><p>*Password does'nt match</p></div>
+            <div class="field button-field">
+              <button type="submit">Create Account</button>
+            </div>
+            </form>
+          <div class="form-link">
+            <span
+              >Already have an account?<a href="#" class="link login-link"
+                >Login</a
+              ></span
+            >
+          </div>
+        </div>
+        <!-- <div class="line"></div>
+        <div class="media-options">
+          <a href="#" class="field facebook"
+            ><i class="fa-brands fa-facebook fa-2x facebook-icon"></i>
+            <span>Login with Facebook</span>
+          </a>
+        </div>
+        <div class="media-options">
+          <a href="#" class="field google"
+            ><img
+              src="wp2780434-google-logo-wallpaper-for-mobile-removebg-preview.png"
+              alt="logo"
+              width="65px"
+            />
+            <span>Continue with google</span>
+          </a>
+        </div> -->
+      </div>
+      <!--forgot password-->
+      <div class="form forgot">
+        <div class="form-contents">
+          <header>Forgot password?</header>
+          <p class="reset">Reset password in two quick steps</p>
+          <form action="#">
+            <div class="field input-field">
+              <input type="email" placeholder="Email" class="input" />
+            </div>
+
+            <div class="field button-field">
+              <button type="submit">Reset Password</button>
+            </div>
+           <div class="back"><a href="#" class="link3 login-link"
+                >Back</a
+              ></div> 
+        </div>
+      </div>
+    </form>
+    </section>
+    <!-- javascript -->
+    <script>
+      const forms = document.querySelector(".forms");
+      pwShowHide = document.querySelectorAll(".eye-icon");
+      links = document.querySelectorAll(".link");
+      links2=document.querySelectorAll('.link2');
+      links3=document.querySelectorAll('.link3');
+      const error=document.querySelector(".first");
+      const error2=document.querySelector(".second");
+      const error3=document.querySelector(".third");
+      const error4=document.querySelector(".forth");
+      const error5=document.querySelector(".fifth");
+      pwShowHide.forEach((eyeIcon) => {
+        eyeIcon.addEventListener("click", () => {
+          let pwFields =
+            eyeIcon.parentElement.querySelectorAll(".password");
+          pwFields.forEach((password) => {
+            if (password.type === "password") {
+              password.type = "text";
+              eyeIcon.classList.replace("bx-hide", "bx-show");
+              return;
+            }
+            password.type = "password";
+            eyeIcon.classList.replace("bx-show", "bx-hide");
+          });
+        });
+      });
+      links.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          document.forms['myForm']['fname'].value="";
+          document.forms['myForm']['lname'].value="";
+          document.forms['myForm']['mail'].value="";
+          document.forms['myForm']['pass1'].value="";
+          document.forms['myForm']['pass2'].value="";
+          error.classList.remove("display");
+        error2.classList.remove("display");
+        error3.classList.remove("display");
+        error4.classList.remove("display");
+        error5.classList.remove("display");
+          forms.classList.toggle("show-signup");
+          forms.classList.remove("show-login");
+          forms.classList.remove("show-forgot");
+        });
+      });
+      links2.forEach((link2) => {
+        
+        link2.addEventListener("click", (f) => {
+          f.preventDefault();
+          error.classList.remove("display");
+        error2.classList.remove("display");
+        error3.classList.remove("display");
+          forms.classList.toggle("show-forgot");
+          forms.classList.remove("show-signup");
+          forms.classList.remove("show-login");
+        });
+      });
+     links3.forEach((link3)=>{
+      link3.addEventListener("click",(e)=>{
+        e.preventDefault();
+        error.classList.remove("display");
+        error2.classList.remove("display");
+        error3.classList.remove("display");
+        forms.classList.toggle("show-login");
+        forms.classList.remove("show-signup");
+        forms.classList.remove("show-forgot");
+      });
+     });
+     // Code for form validation
+     function validateForm(){
+      let flag=0;
+      let returnval= true;
+      // Perform validation and if validation fails set the value of returnval is false.
+      let name=document.forms['myForm']['fname'].value;
+        let name2=document.forms['myForm']['lname'].value;
+        let mail=document.forms['myForm']['mail'].value;
+        let password=document.forms['myForm']['pass1'].value;
+        let confirmpass=document.forms['myForm']['pass2'].value;
+        if(name.search('0')!=-1||name.search('1')!=-1||name.search('2')!=-1||name.search('3')!=-1||name.search('4')!=-1||name.search('5')!=-1||name.search('6')!=-1||name.search('7')!=-1||name.search('8')!=-1||name.search('9')!=-1||name.search('@')!=-1||name.search('#')!=-1||name.search('&')!=-1){
+          flag=1;
+        }
+        if(flag==1){
+          error.innerHTML="*Only alphabets are allowed";
+          error.classList.add("display");
+          returnval=false;
+        }
+        else if(name.length<4){
+           error.innerHTML="*Length of the name is too short";
+           error.classList.add("display");
+           returnval=false;
+        }
+        else error.innerHTML="";
+        if(name2.search('0')!=-1||name2.search('1')!=-1||name2.search('2')!=-1||name2.search('3')!=-1||name2.search('4')!=-1||name2.search('5')!=-1||name2.search('6')!=-1||name2.search('7')!=-1||name2.search('8')!=-1||name2.search('9')!=-1||name2.search('@')!=-1||name2.search('#')!=-1){
+          flag=2;
+        }
+        if(flag==2){
+          error2.innerHTML="*Only alphabets are allowed";
+          error2.classList.add("display");
+          returnval=false;
+        }
+        else error2.innerHTML="";
+        if(mail.search("@gmail.com")==-1){
+          error3.innerHTML="*Enter a valid E-mail";
+         error3.classList.add("display");
+         returnval=false;
+        }
+        else error3.innerHTML="";
+        if(password.length<8){
+          error4.innerHTML="*Choose a strong password";
+          error4.classList.add("display");
+          returnval=false;
+        }
+        else if((password.search("#")==-1&&password.search("@")==-1&&password.search("&")==-1&&password.search("_")==-1)){
+          error4.innerHTML="*Use atleast one special character";
+          error4.classList.add("display");
+          returnval=false;
+        }
+        else error4.innerHTML="";
+        if(password!=confirmpass){
+          error5.innerHTML="*password does'nt match";
+          error5.classList.add("display");
+          returnval=false;
+        }
+        else error5.innerHTML="";
+        return returnval;
+     }
+    </script>
+    
+  </body>
+</html>

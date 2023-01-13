@@ -1,0 +1,353 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* header {
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+} */
+
+/* .container1 {
+  position: fixed;
+  position: sticky;
+} */
+.navigation .it li > a[href] {
+  font-size: 1.8vw;
+  text-decoration: none;
+  color: wheat;
+  text-shadow: 0 0 8px #0000ff, 0 0 8px #ff0000;
+}
+
+/* .navigation .it li > a {
+  width: 62px;
+  height: 30px;
+  justify-items: center;
+  border-radius: 4px;
+  padding: 8px;
+  gap: 2px;
+  width: 70px;
+} */
+
+.image .search {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+}
+.srch {
+  height: 4.93vh;
+  width: 9.5vw;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: rgb(4, 17, 20);
+  border-radius: 0 8px 8px 0;
+  border: solid 1px rgb(249, 18, 226);
+}
+.srch:hover {
+  color: rgb(12, 194, 226);
+}
+.image {
+  justify-content: center;
+}
+.image .search i {
+  object-fit: cover;
+  padding: 0.4cm;
+  padding-left: 0.6cm;
+  border-right: solid black 2px;
+  z-index: 2;
+  margin-left: 19%;
+  height: 16px;
+}
+.search {
+  justify-content: center;
+}
+.search input {
+  /* position: absolute; */
+  /* margin-left: 20%; */
+  padding-left: 1vw;
+  width: 30vw;
+  height: 4.1vh;
+  border-radius: 8px 0 0 8px;
+  border: solid 1px rgb(249, 18, 226);
+}
+
+.navigation .it li > a:hover {
+  color: rgb(255, 183, 0);
+  /* background-image: linear-gradient(to right, gold, white, gold); */
+}
+
+.navigation {
+  width: 100%;
+  background: linear-gradient(
+    to right,
+    rgb(249, 18, 226),
+    rgb(12, 194, 226),
+    rgb(249, 18, 226)
+  );
+  display: flex;
+  height: 13vh;
+  margin: 0;
+}
+.navigation .it {
+  list-style: none;
+  display: flex;
+  gap: 4vw;
+  margin: 0;
+  padding: 1cm;
+  align-items: center;
+}
+
+.Hotelo {
+  margin-left: 38vw;
+  margin-right: 4vw;
+  font-size: 3.5vw;
+  color: rgb(255, 183, 0);
+  font-weight: 900;
+  text-shadow: 0 0 3px purple, 0 0 5px purple;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-style: italic;
+}
+
+.name img {
+  height: 100px;
+  width: 100px;
+}
+
+.container1 {
+  position: relative;
+  display: flex;
+  margin: 0;
+}
+.container1 .navigation .it .active > a[href] {
+  color: rgb(255, 183, 0);
+}
+.main {
+  margin: 0;
+}
+.img1 {
+  height: fit-content;
+}
+.section1 {
+  margin: 0;
+  background: rgba(0, 0, 0, 0.4)
+    url("https://img.freepik.com/free-photo/sunset-pool_1203-3192.jpg?w=2000");
+  background-blend-mode: lighten;
+  background-size: cover;
+  height: 90vh;
+}
+
+.section1 .image img {
+  opacity: 0.7 black;
+  position: absolute;
+  margin-top: 0;
+  height: -20vh;
+  z-index: -1;
+}
+
+.section1 .image {
+  margin: 0;
+}
+
+.section1 .image .welcome {
+  padding-top: 3.2cm;
+  font-size: 64px;
+  font-weight: 900;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  text-align: center;
+  text-shadow: 0 0 6px #ff0000, 0 0 6px #0000ff;
+  color: rgb(248, 247, 250);
+}
+
+.section1 .image .wel2 {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-style: italic;
+  color: rgb(249, 248, 251);
+  text-shadow: 0 0 3px #ff0000, 0 0 5px #0000ff;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 900;
+  margin-top: 5px;
+  margin-bottom: 120px;
+}
+
+.content {
+  height: 70px;
+  background-image: linear-gradient(
+    to right,
+    rgb(249, 18, 226),
+    rgb(12, 194, 226),
+    rgb(249, 18, 226)
+  );
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+.content .places {
+  font-size: 39px;
+  color: white;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  text-shadow: 0 0 3px black, 0 0 5px black;
+  text-align: center;
+  /* text-decoration: underline; */
+  margin-top: 0;
+}
+
+.section2 .imgs img {
+  z-index: -1;
+  position: absolute;
+  border-radius: 10px;
+  box-shadow: 8px 8px 8px grey;
+}
+
+.container2 {
+  display: flex;
+  height: 228px;
+  justify-content: space-evenly;
+  padding-right: 0.3cm;
+  padding-left: 0.3cm;
+  margin-bottom: 2%;
+  /* margin-bottom: 18%; */
+}
+.container2 .img1 {
+  width: 30%;
+  height: 36.5%;
+}
+.container2 .imgs .placename {
+  padding-left: 1.5rem;
+  font-size: 1rem;
+}
+
+.imgs .photo {
+  /* margin-right: 438px; */
+  border-left: solid black 3px;
+}
+
+.imgs {
+  justify-content: center;
+}
+
+.container3 {
+  display: flex;
+  height: 228px;
+  justify-content: space-evenly;
+  padding-right: 0.3cm;
+  padding-left: 0.3cm;
+  margin-bottom: 2%;
+}
+.container3 .img1 {
+  width: 30%;
+  overflow: hidden;
+  height: 36.5%;
+}
+.container3 .imgs .placename {
+  padding-left: 1.5rem;
+  font-size: 1rem;
+}
+.imgs {
+  justify-content: center;
+  height: 36.5%;
+}
+.containerNew {
+  display: flex;
+  height: 228px;
+  justify-content: space-evenly;
+  padding-right: 0.3cm;
+  padding-left: 0.3cm;
+  margin-bottom: 2%;
+}
+.containerNew .img1 {
+  width: 30%;
+  height: 30%;
+  overflow: hidden;
+}
+.containerNew .imgs .placename {
+  padding-left: 1.5rem;
+  font-size: 1rem;
+}
+.imgs .placename {
+  text-decoration: none;
+  color: white;
+  text-shadow: 0 0 5px black, 0 0 5px black;
+}
+
+.imgs a:hover {
+  color: rgb(6, 241, 253);
+}
+
+.about {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  padding: 1.2rem;
+  margin-left: 1.5cm;
+  display: flexbox;
+  justify-content: center;
+  width: 26%;
+  /* height: fit-content; */
+  border: solid rgb(249, 18, 226) 3px;
+  border-radius: 10px;
+  font-size: 24px;
+  box-shadow: 8px 8px 8px 8px grey;
+}
+
+.about2 {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  display: flexbox;
+  width: 55%;
+  /* height: fit-content; */
+  margin-left: 2vw;
+  border: solid rgb(249, 18, 226) 3px;
+  border-radius: 10px;
+  padding: 0.8cm;
+  font-size: 24px;
+  box-shadow: 8px 8px 8px 8px grey;
+}
+
+.about2 h1 {
+  margin-top: 18px;
+}
+
+.container4 {
+  display: inline-flex;
+}
+
+.about3 {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  height: fit-content;
+  margin-left: 57px;
+  margin-right: 40px;
+  width: fit-content;
+  border: solid rgb(249, 18, 226) 3px;
+  border-radius: 10px;
+  margin-top: 1cm;
+  margin-bottom: 1cm;
+  font-size: 24px;
+  padding: 1cm;
+  box-shadow: 8px 8px 8px 8px grey;
+}
+
+.about3 h1 {
+  margin-top: 0px;
+}
+.foot {
+  background: linear-gradient(
+    to right,
+    rgb(249, 18, 226),
+    rgb(12, 194, 226),
+    rgb(249, 18, 226)
+  );
+  align-items: center;
+}
+.foot i {
+  color: wheat;
+  padding: 0.6rem;
+  gap: 30px;
+}
+#copy {
+  float: right;
+  color: wheat;
+  font-size: 24px;
+  padding: 0.6rem;
+}
