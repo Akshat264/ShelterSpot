@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Details</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://unpkg.com/scrollreveal"></script>
+  </head>
+  <body>
+    <section class="section1">
+      <div class="container1">
+        <div class="open">
+          <p class="name"><%=hotel_name%></p>
+          <p class="address">
+            <%=address%>
+          </p>
+          <div class="rating">  
+          </div>
+          <div class="price"><p>&#8377;<%=price%></p></div>
+          <a href="<%=url%>" class="book">Book</a>
+          <a href="#details" class="book">Details</a>
+          <a href="#mapview" class="book">Map View</a>
+          <a href="/book.html" class="book">Back</a>
+        </div>
+        <div class="image1">
+          <img
+            src= "<%=img1%>"
+            alt="main image"
+            width="90%"
+            height="330vh"
+          />
+        </div>
+      </div>
+    </section>
+    <section class="section2">
+      <p class="heading">Images:</p>
+      <div class="images">
+        <div class="first-two">
+          <img
+            src="<%=img2%>"
+            alt="image"
+            height="430vh"
+            width="55%"
+          />
+          <img
+            src="<%=img3%>"
+            alt="image"
+            width="42%"
+            height="430vh"
+          />
+        </div>
+        <div class="first-two">
+          <img
+            src="<%=img4%>"
+            alt="image"
+            width="42%"
+            height="430vh"
+          />
+          <img
+            src="<%=img1%>"
+            alt="image"
+            width="55%"
+            height="430vh"
+          />
+        </div>
+      </div>
+    </section>
+    <section class="section3" id="details">
+      <p class="heading">Details:</p>
+      <div class="container2">
+        <div class="highlight_value">
+          <h1 class="head">Highlight Value:</h1>
+        </div>
+        <div class="highlight_value" id="in_your_room">
+          <h1 class="head">Room Facilities:</h1>
+        </div>
+      </div>
+      <div class="hotel_overview">
+        <h1 class="head">Hotel Overview:</h1>
+        <p class="val2">
+          <%=overview%>
+        </p>
+      </div>
+    </section>
+    <section class="section4" id="mapview">
+        <p class="heading">Map View:</p>
+        <div class="map">
+        <iframe src="<%=location%>" width="600vw" height="450vh" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+      </iframe>
+    </section>
+    <footer class="foot">
+        <i class="fa-brands fa-instagram fa-2x"></i>
+        <i class="fa-brands fa-facebook fa-2x"></i>
+        <i class="fa-brands fa-youtube fa-2x"></i>
+        <i class="fa-brands fa-twitter fa-2x"></i>
+        <i class="fa-brands fa-linkedin-in fa-2x"></i>
+        <div id="copy">&#169; SHELTER$POT</div>
+      </footer>
+      <script>
+        ScrollReveal().reveal('.images');
+        ScrollReveal().reveal('.highlight_value');
+        ScrollReveal().reveal('.hotel_overview');
+        ScrollReveal().reveal('.map');
+        const highlight_value=document.querySelector(".highlight_value");
+        const hotel_in_your_room=document.querySelector("#in_your_room");
+        const rating=<%=rating%>;
+        let arr=[];
+        const value=document.querySelector(".rating");
+        for(let i=1;i<=rating;i++){
+              arr[i]="checked";
+        }
+        html=`<span class="fa fa-star fa-2x ${arr[1]}"></span>
+            <span class="fa fa-star fa-2x ${arr[2]}"></span>
+            <span class="fa fa-star fa-2x ${arr[3]}"></span>
+            <span class="fa fa-star fa-2x ${arr[4]}"></span>
+            <span class="fa fa-star fa-2x ${arr[5]}"></span>`
+        value.insertAdjacentHTML("afterbegin",html);
+        let highlight="<%=highlight%>";
+        let in_your_room="<%=room_facility%>";
+        const myArray = highlight.split("|");
+        const array2= in_your_room.split("|");
+        for(val of myArray){
+          html=`<p class="val">${val}</p>`
+          highlight_value.insertAdjacentHTML("beforeend",html);
+        }
+        for(val of array2){
+          html=`<p class="val">${val}</p>`
+          hotel_in_your_room.insertAdjacentHTML("beforeend",html);
+        }
+      </script>
+  </body>
+</html>

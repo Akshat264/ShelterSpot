@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book</title>
+    <link rel="shortcut icon" href="https://img.freepik.com/premium-vector/ss-letter-logo-design-black-background-initial-monogram-letter-ss-logo-design-vector-template_634196-1207.jpg" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: rgba(0,0,0,0.2)url("https://img.freepik.com/free-photo/sunset-pool_1203-3192.jpg?w=2000");
+        background-size: cover;
+        background-blend-mode: darken;
+      }
+
+      header {
+        width: 100%;
+        margin: 0;
+        overflow: hidden;
+      }
+
+      /* .container1 {
+        position:sticky;
+        top: 0;
+      }
+      .navigation .it li > a[href] {
+        font-size: 24px;
+        text-decoration: none;
+        color: black;
+      }
+
+      .navigation .it li > a {
+        width: 62px;
+        height: 30px;
+        justify-items: center;
+        border-radius: 4px;
+        padding: 8px;
+        gap: 2px;
+        width: 70px;
+      }
+      .navigation .it li > a:hover {
+        color: rgb(255, 183, 0);
+         background-image: linear-gradient(to right, gold, white, gold); 
+      }
+      .navigation {
+        display: flex;
+        height: 80px;
+        margin: 0;
+      }
+
+      .navigation .it {
+        list-style: none;
+        display: flex;
+        gap: 2.5rem;
+        background-image: linear-gradient(to right, rgb(249, 18, 226), rgb(12,194,226));
+        margin: 0;
+        padding: 1cm;
+        align-items: center;
+      }
+
+      .name {
+        display: flex;
+        background-image: linear-gradient(to right, rgb(12,194,226), rgb(249, 18, 226));
+        width: 63%;
+        height: 80px;
+        justify-content: right;
+        align-items: center;
+        padding-right: 52px;
+        gap: 1rem;
+        margin: 0;
+      }
+
+      .name .Hotelo {
+        font-size: 48px;
+        color: rgb(255, 183, 0);
+        font-weight: 900;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+        font-style: italic;
+      }
+      .name img {
+        height: 100px;
+        width: 100px;
+      }
+
+      .container1 {
+        position: relative;
+        display: flex;
+        margin: 0;
+      }
+      .container1 .navigation .it .active > a[href] {
+        color: rgb(255, 183, 0);
+      } */
+   .container1 .navigation .it li > a:hover {
+  color: rgb(255, 183, 0);
+  text-shadow: 0 0 2px #ea1010, 0 0 2px #09090b;
+  /* background-image: linear-gradient(to right, gold, white, gold); */
+}
+body::-webkit-scrollbar {
+  width: 12px; /* width of the entire scrollbar */
+}
+body::-webkit-scrollbar-track {
+  background: white; /* color of the tracking area */
+}
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(78, 186, 253); /* color of the scroll thumb */
+  border-radius: 0px; /* roundness of the scroll thumb */
+  border: 0px solid rgb(255, 183, 0); /* creates padding around scroll thumb */
+}
+.navigation {
+  width: 100%;
+  background: linear-gradient(
+    to right,
+    white
+  );
+  display: flex;
+  height: 13vh;
+  margin: 0;
+}
+.navigation .it {
+  list-style: none;
+  display: flex;
+  gap: 4vw;
+  margin: 0;
+  padding: 1cm;
+  align-items: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.Hotelo {
+  margin-left: 38vw;
+  margin-right: 4vw;
+  font-size: 3.5vw;
+  color: rgb(255, 183, 0);
+  font-weight: 900;
+  text-shadow: 0 0 3px purple, 0 0 5px purple;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-style: italic;
+}
+
+.name img {
+  height: 100px;
+  width: 100px;
+}
+
+.container1 {
+  position: relative;
+  display: flex;
+  margin: 0;
+}
+.container1 .navigation .it .active > a[href] {
+  color: rgb(255, 183, 0);
+  text-shadow: 0 0 2px #ea1010, 0 0 2px #09090b;
+}
+.navigation .it li > a[href] {
+  font-size: 1.8vw;
+  text-decoration: none;
+  color: black;
+}
+      .hotel {
+        width: 125%;
+        height: 100%;
+        padding: 10px;
+        padding-left: 30px;
+        border-radius: 20px;
+        border: none;
+        background-color: rgb(227, 223, 217);
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        font-size: 16px;
+      }
+      .hotel:focus{
+        outline: none;
+      }
+      .search {
+        width: 100px;
+        height: 53px;
+        border-radius: 0px 20px 20px 0px;
+        background: linear-gradient(to right,rgb(255, 183, 0), red );
+        color: white;
+        border: none;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .bookform {
+        margin-top: 10%;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        gap: 100px;
+        /* margin: auto; */
+      }
+      .section1{
+        padding: 0;
+      }
+      .section1 .bookform .forms .hotel {
+        margin-bottom: 15px;
+      }
+      .gaurantee{
+        width: 30%;
+      }
+      /* .hotel {
+        
+      }*/
+    .hotelsubmit {
+        margin-left: 20px;
+      } 
+      .city{
+        width: 400px;
+      }
+      .hello{
+        display: flex;
+      }
+      .checked{
+        color: orange;
+      }
+      .hotelName{
+        font-weight: 600;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+      }
+      .container2{
+        width: 60%;
+        height: 368px;
+        margin: auto;
+        overflow: scroll;
+        margin-top: 5%;
+        /* display: none; */
+        background-color: wheat;
+        border-radius: 10px;
+        overflow-x: hidden;
+      }
+      .container2::-webkit-scrollbar {
+  width: 5px;           /* width of the entire scrollbar */
+}
+.container2::-webkit-scrollbar-track {
+  background: rgb(248, 247, 245);        /* color of the tracking area */
+}
+.container2::-webkit-scrollbar-thumb {
+  background-color: rgb(1, 0, 1);    /* color of the scroll thumb */
+  border-radius: 50px;       /* roundness of the scroll thumb */
+  /* border: 0.5px solid rgb(255, 183, 0);  creates padding around scroll thumb */
+}
+      .container2 .card{
+        background-color: white;
+        padding: 20px;
+        height: fit-content;
+        width: 94.89%;
+        border-bottom:solid 2px rgb(116, 115, 113);
+      }
+      .hotelName {
+        padding: 0;
+      }
+      .names{
+        margin: 0;
+        font-size: 26px;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        color: rgb(8 8 8);
+        text-shadow: 0 0 4px white;
+      }
+      .address{
+        color: black;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+      }
+      .rating{
+        padding-top: 8px;
+      }
+      .first{
+        display: flex;
+        justify-content: space-between;
+      }
+      .first-1{
+        display: flex;
+        gap: 10px;
+      }
+      .first{
+        height: fit-content;
+      }
+      .view{
+        margin-top: 15px;
+        font-weight: 600;
+        border-radius: 10px;
+        color: rgb(16, 14, 14);
+        background-color: rgb(225 227 227);
+        width: 80px;
+        margin-right: 20px;
+        cursor: pointer;
+        height: 30px;
+        border: none;
+      }
+      .first .hotelname{
+      height: fit-content;
+      }
+      .show{
+        display: block;
+      }
+      .sort {
+    margin-top: 1vw;
+}
+     .sorting{
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      border-radius: 5px;
+      background-color: rgb(250, 119, 4);
+      color: white;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      cursor: pointer;
+      border: none;
+     }
+     .sorting_by_price{
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      border-radius: 5px;
+      background-color: rgb(250, 119, 4);
+      color: white;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      cursor: pointer;
+      border: none;
+     }
+     .price{
+      font-size: 2vw;
+      margin-top: -28px;
+      font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      margin-left: 1vw;
+     }
+     .rating{
+      margin-top: -30px;
+    margin-bottom: 4.5vh;
+     }
+     .sortmethods{
+      display: flex;
+     }
+     .sort{
+      display: flex;
+      justify-content: center;
+      gap: 2vw;
+     }
+    </style>
+  </head>
+  <body>
+<header>
+  <div class="container1">
+    <div class="navigation">
+      <ul class="it">
+        <li><a href="/index:logged_in">Home</a></li>
+        <li class="lol">
+          <a href="/about.html">About</a>
+        </li>
+        <li class="active">
+          <a href="#">Book</a>
+        </li>
+        <li>
+          <a href="/">Logout</a>
+        </li>
+        <li class="Hotelo">ShelterSpot</li>
+      </ul>
+    </div>
+  </div>
+    </header>
+    <main>
+      <section class="section1">
+        <form method="post" class="forms"action="/book.html">
+        <div class="bookform">
+            <div class="hello"><div class="city">
+              <select type="text"
+              name="hotel"
+              class="hotel">
+                <option>Select Location here</option>
+                <option>Alipur</option>
+                <option>DLF Cyber City</option>
+                <option>DLF Phase 2</option>
+                <option>Faridabad</option>
+                <option>Ghaziabad</option>
+                <option>Gurgaon</option>
+                <option>Indira Gandhi International Airport</option>
+                <option>Kalindi Colony</option>
+                <option>Karol Bagh</option>
+                <option>New Delhi</option>
+                <option>New Delhi Railway Station</option>
+                <option>Noida</option>
+                <option>Paharganj</option>
+                <option>Sector 30</option>
+                <option>Sector 70</option>
+                <option>South Delhi</option>
+            </select>
+            </div>
+            <div class="hotelsubmit">
+              <button type="submit" class="search">Search</button>
+            </div>
+          </div>
+          </form>
+      </section>
+      <div class="sort"><div><button class="sorting">Sort by rating</button></div><div><button class="sorting_by_price">Sort by price</button></div></div>
+      <section class="section2">
+        <div class="container2">
+
+        </div>
+      </section>
+    </main>
+    <script>
+      const sort_button=document.querySelector(".sorting");
+      const sort_price=document.querySelector(".sorting_by_price");
+      const val=document.querySelector(".hotel");
+      document.querySelector(".search").addEventListener("click",(e)=>{
+        if(val.value==="Select Location here"){
+            e.preventDefault(); 
+        }
+      })
+      // document.querySelector(".hotel").addEventListener("click",function(){
+      //   console.log("Clicked Successfully"); 
+      let container= document.querySelector(".container2");
+      const arr= <%- JSON.stringify(search_Array)%>;
+  const display=function(array) {for(const mov of array){
+        let star=[];
+         for(let i=0;i<mov.hotel_star_rating;i++){
+          star[i]="checked";
+         }
+        const html=`<form action='/details' method="post">
+        <div class="card">
+            <div class="first">
+              <div class="first-1">
+          <div class="hotelName">
+            <p class="names">${mov.property_name}</p>
+          </div>
+          <div class="price"><p>&#8377;${mov.price_per_room_per_day}</p></div>
+        </div>
+        <input type="hidden" name="hotel_name" value="${mov.property_name}">
+        <input type="hidden" name="hotel_address" value="${mov.property_address}">
+        <input type="hidden" name="hotel_rating" value="${mov.hotel_star_rating}">
+        <input type="hidden" name="hotel_overview" value="${mov.hotel_overview}">
+        <input type="hidden" name="hotel_city" value="${mov.city}">
+        <input type="hidden" name="hotel_area" value="${mov.area}">
+        <input type="hidden" name="hotel_highlight_value" value="${mov.highlight_value}">
+        <input type="hidden" name="hotel_in_your_room" value="${mov.in_your_room}">
+        <input type="hidden" name="hotel_pageurl" value="${mov.pageurl}">
+        <input type="hidden" name="hotel_room_types" value="${mov.room_types}">
+        <input type="hidden" name="hotel_price" value="${mov.price_per_room_per_day}">
+        <input type="hidden" name="hotel_latitude" value="${mov.latitude}">
+        <input type="hidden" name="hotel_longitude" value="${mov.longitude}">
+        <input type="hidden" name="hotel_img" value="${mov.img_url}">
+        <input type="hidden" name="hotel_img1" value="${mov.img_url2}">
+        <input type="hidden" name="hotel_img2" value="${mov.img_url3}">
+        <input type="hidden" name="hotel_img3" value="${mov.img_url4}">
+        <input type="hidden" name="location" value="${mov.location}">
+        <input type="hidden" name="price" value="${mov.price_per_room_per_day}">
+          <button class="view" type "submit">View</button>
+        </div>
+        <div class="rating">
+            <span class="fa fa-star ${star[0]}"></span>
+            <span class="fa fa-star ${star[1]}"></span>
+            <span class="fa fa-star ${star[2]}"></span>
+            <span class="fa fa-star ${star[3]}"></span>
+            <span class="fa fa-star ${star[4]}"></span>
+          </div>
+          <div class="address">
+        
+            <p>${mov.property_address}</p>
+          </div>
+          </div>
+          </form>`
+          container.insertAdjacentHTML("afterbegin",html);
+      }}
+      display(arr);
+      sort_button.addEventListener("click",function(){
+        console.log("sort button");
+        let sorted = arr.sort(
+    (p1, p2) => (p1.hotel_star_rating < p2.hotel_star_rating) ? -1 : (p1.hotel_star_rating > p2.hotel_star_rating) ? 1 : 0);
+      container.innerHTML="";
+      display(sorted);
+      })
+      sort_price.addEventListener("click",function(){
+        console.log("sort button");
+        let sorted = arr.sort(
+    (p1, p2) => (Number(p1.price_per_room_per_day) < Number(p2.price_per_room_per_day)) ? 1 : (Number(p1.price_per_room_per_day) > Number(p2.price_per_room_per_day)) ? -1 : 0);
+      container.innerHTML="";
+      display(sorted);
+      })
+      // })
+    </script>
+  </body>
+</html>

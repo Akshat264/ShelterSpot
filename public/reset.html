@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reset Password</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="https://img.freepik.com/premium-vector/ss-letter-logo-design-black-background-initial-monogram-letter-ss-logo-design-vector-template_634196-1207.jpg" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      .container {
+        height: 100vh;
+        width: 100%;
+        gap: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.2)
+          url("https://img.freepik.com/free-photo/sunset-pool_1203-3192.jpg?w=2000");
+        background-size: cover;
+      }
+      .form {
+        position: absolute;
+        border-radius: 6px;
+        max-width: 430px;
+        padding: 30px;
+        height: fit-content;
+        background: linear-gradient(
+          to top,
+          rgb(221, 211, 135),
+          rgb(221, 211, 135),
+          rgb(12, 194, 226)
+        );
+        width: 100%;
+        /* border: 2px solid rgb(197, 8, 181); */
+        box-shadow: 5px grey;
+      }
+      /* .form.signup {
+        opacity: 0;
+        pointer-events: none;
+      }
+      .form.forgot {
+        opacity: 0;
+        pointer-events: none;
+      }
+      .forms.show-forgot .form.forgot {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .forms.show-forgot .form.login {
+        opacity: 0;
+        pointer-events: none;
+      }
+      .forms.show-forgot .form.signup {
+        opacity: 0;
+        pointer-events: none;
+      }
+      .forms.show-signup .form.signup {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .forms.show-signup .form.login {
+        opacity: 0;
+        pointer-events: none;
+      }
+      .forms.show-signup .form.forgot {
+        opacity: 0;
+        pointer-events: none;
+      }
+      .forms.show-login .form.login {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .forms.show-login .form.form.signup {
+        opacity: 0;
+        pointer-events: none;
+      }
+      .forms.show-login .form.forgot {
+        opacity: 0;
+        pointer-events: none;
+      } */
+      header {
+        font-size: 28px;
+        font-weight: 600;
+        color: wheat;
+        text-align: center;
+      }
+      form {
+        margin-top: 30px;
+      }
+      .form .field {
+        position: relative;
+        height: 40px;
+        width: 100%;
+        margin-top: 20px;
+        border-radius: 6px;
+      }
+      .field input,
+      .field button {
+        height: 100%;
+        width: 100%;
+        border: none;
+        font-size: 16px;
+        font-weight: 400;
+        border-radius: 6px;
+      }
+      .field input {
+        padding: 0 15px;
+        border: 1px solid#CACACA;
+        outline: none;
+      }
+      .field input:focus {
+        border-bottom-width: 2px;
+        font-size: 15px;
+      }
+      .form-link {
+        text-align: center;
+        margin-top: 10px;
+      }
+      .form-link span,
+      .form-link a {
+        font-size: 14px;
+        font-weight: 400;
+        color: #232836;
+      }
+      .form a {
+        color: #4d5054;
+        text-decoration: none;
+      }
+      .form-content a:hover {
+        text-decoration: underline;
+      }
+      .eye-icon {
+        font-size: 18px;
+        position: absolute;
+        color: #8b8b8b;
+        top: 30%;
+        right: 10px;
+        transform: translate(-50%);
+        cursor: pointer;
+      }
+      .line {
+        height: 1px;
+        width: 100%;
+        position: relative;
+        margin: 36px 0;
+        background-color: white;
+      }
+      .line::before {
+        content: "Or";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        color: #8b8b8b;
+        padding: 0 15px;
+      }
+      .field button {
+        color: white;
+        background-color: #1a01d3;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+      .field button:hover {
+        background-color: #131ae1;
+      }
+      .media-options a {
+        display: flex;
+        background-color: #4267b2;
+        justify-content: center;
+        align-items: center;
+      }
+      a.facebook {
+        background-color: #4267b2;
+        color: #fff;
+      }
+      a.google {
+        border: 1px solid #cacaca;
+        background-color: white;
+      }
+      .a.facebook .facebook-icon {
+        height: 28px;
+        width: 28px;
+        background-color: white;
+        color: #0171d3;
+        font-size: 20px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .facebook-icon {
+        left: 15px;
+        position: absolute;
+        transform: translate(-50%);
+        margin-left: 10px;
+      }
+      .google img {
+        left: 15px;
+        position: absolute;
+        transform: translate(-50%);
+        margin-left: 10px;
+      }
+      .google span {
+        font-weight: 500;
+        opacity: 0.6;
+        color: #232836;
+      }
+      @media screen and (max-width: 400px) {
+        .form {
+          padding: 15px 10px;
+        }
+      }
+      .e-mail {
+        color: rgb(244, 8, 8);
+        margin-left: 10px;
+        display: none;
+        font-weight: 700;
+        text-shadow: 0, 0, 2px white;
+      }
+      .display {
+        display: block;
+      }
+      .reset {
+        text-align: center;
+        color: white;
+      }
+      .back {
+        text-align: center;
+        margin-top: 10px;
+      }
+      .xyz {
+        /* margin-top: 245px; */
+        max-width: 500px;
+      }
+      .display {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="container forms">
+        <!--forgot password-->
+      <div class="form forgot">
+        <div class="form-contents">
+          <header>Forgot password?</header>
+          <p class="reset">Reset password in two quick steps</p>
+          <form action="/reset-password" method="post">
+            <div class="field input-field">
+              <input type="email" placeholder="Email" name="mail" class="input" />
+            </div>
+            <div class="field button-field">
+              <button type="submit">Reset Password</button>
+            </div>
+           <div class="back"><a href="login.html" class="link3 login-link"
+                >Back</a
+              ></div> 
+        </div>
+      </div>
+    </form>
+    </section>
+    </section>
+  </body>
+</html>
