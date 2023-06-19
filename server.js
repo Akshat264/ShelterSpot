@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const MongoClient = require("mongodb").MongoClient;
 const flash = require("flash");
 const ejs = require("ejs");
+const port = process.env.PORT || 3000;
 // const database = mongoose.connect("mongodb://localhost:27017/Mini_Project");
 mongoose.set("strictQuery", true);
 const bodyParser = require("body-parser");
@@ -27,7 +28,7 @@ let search_Array;
 app.post("/book.html", function (req, res) {
   const request = req.body.hotel;
   MongoClient.connect(
-    "mongodb://localhost:27017",
+    "mongodb+srv://Akshat264:Aps532004@cluster0.5pcztij.mongodb.net/",
     { useNewUrlParser: true },
     (err, db) => {
       if (err) throw err;
@@ -115,7 +116,7 @@ app.post("/login", function (req, res) {
   const email = req.body.mail;
   const password = req.body.pass1;
   MongoClient.connect(
-    "mongodb://localhost:27017",
+    "mongodb+srv://Akshat264:Aps532004@cluster0.5pcztij.mongodb.net/",
     { useNewUrlParser: true },
     (err, db) => {
       if (err) throw err;
@@ -133,7 +134,7 @@ app.post("/index:logged_in", function (req, res) {
   const email = req.body.mail_id;
   const password = req.body.pass;
   MongoClient.connect(
-    "mongodb://localhost:27017",
+    "mongodb+srv://Akshat264:Aps532004@cluster0.5pcztij.mongodb.net/",
     { useNewUrlParser: true },
     (err, db) => {
       if (err) throw err;
@@ -167,7 +168,7 @@ app.get("/index:logged_in", function (req, res) {
 app.post("/reset-password", function (req, res) {
   const mail = req.body.mail;
   MongoClient.connect(
-    "mongodb://localhost:27017",
+    "mongodb+srv://Akshat264:Aps@532004@cluster0.5pcztij.mongodb.net/",
     { useNewUrlParser: true },
     (err, db) => {
       if (err) throw err;
@@ -190,4 +191,4 @@ app.post("/reset-password", function (req, res) {
     }
   );
 });
-app.listen(3000, () => console.log(`Server is listening on port 3000`));
+app.listen(port, () => console.log(`Server is listening on port ${port}`));
