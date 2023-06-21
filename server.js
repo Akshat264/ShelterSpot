@@ -192,4 +192,4 @@ app.post("/reset-password", function (req, res) {
     }
   );
 });
-app.listen(port, () => console.log(`Server is listening on port ${port}`));
+app.listen(port, () => {console.log(`Server is listening on port ${port}`));console.log(process.env.MONGODB_URI);};
