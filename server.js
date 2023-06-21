@@ -25,6 +25,7 @@ app.use(express.static("public"));
 //   res.render(__dirname + "/views/book.ejs");
 // });
 let search_Array;
+console.log(process.env.MONGODB_URI)
 app.post("/book.html", function (req, res) {
   const request = req.body.hotel;
   MongoClient.connect(
